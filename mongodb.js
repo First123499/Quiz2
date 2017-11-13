@@ -20,7 +20,18 @@ function findAll(req ,res){
 
 }
 
-
+function searchSalary(req,res){
+    var salary = req.param('sal');
+        var query = {
+            salary:salary
+        };
+        console.log(query);
+        db.collection("users").find(query).toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+           
+        });
+}
 
 function findByname(req, res) {
 var name =req.param('fname');
@@ -52,6 +63,7 @@ function findByrole(req, res) {
 module.exports = {
     findAll: findAll,
     findByname: findByname,
-    findByrole: findByrole
+    findByrole: findByrole,
+    searchSalary:searchSalary
     
     };

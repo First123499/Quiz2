@@ -20,6 +20,7 @@ app.use(express.static('www'))
 app.get('/users', user.findAll);
 app.get('/users/search', user.findByname);
 app.get('/users/role/:role', user.findByrole);
-
+app.get('/users/salarySearch', user.searchSalary);
+// searchSalary
 app.listen(3000);
 console.log('Server is running at http://localhost:3000');
